@@ -1,0 +1,605 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A9CB66C5255367B200881D6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB66C4255367B200881D6F /* AppDelegate.swift */; };
+		A9CB66C7255367B200881D6F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB66C6255367B200881D6F /* ContentView.swift */; };
+		A9CB66C9255367B500881D6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9CB66C8255367B500881D6F /* Assets.xcassets */; };
+		A9CB66CC255367B500881D6F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9CB66CB255367B500881D6F /* Preview Assets.xcassets */; };
+		A9CB66CF255367B500881D6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9CB66CD255367B500881D6F /* Main.storyboard */; };
+		A9CB66DB255367B500881D6F /* VisionCertMacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB66DA255367B500881D6F /* VisionCertMacTests.swift */; };
+		A9CB66E6255367B500881D6F /* VisionCertMacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB66E5255367B500881D6F /* VisionCertMacUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A9CB66D7255367B500881D6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9CB66B9255367B200881D6F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9CB66C0255367B200881D6F;
+			remoteInfo = VisionCertMac;
+		};
+		A9CB66E2255367B500881D6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9CB66B9255367B200881D6F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9CB66C0255367B200881D6F;
+			remoteInfo = VisionCertMac;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A9CB66C1255367B200881D6F /* VisionCertMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisionCertMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9CB66C4255367B200881D6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A9CB66C6255367B200881D6F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A9CB66C8255367B500881D6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A9CB66CB255367B500881D6F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A9CB66CE255367B500881D6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A9CB66D0255367B500881D6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9CB66D1255367B500881D6F /* VisionCertMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VisionCertMac.entitlements; sourceTree = "<group>"; };
+		A9CB66D6255367B500881D6F /* VisionCertMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisionCertMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9CB66DA255367B500881D6F /* VisionCertMacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionCertMacTests.swift; sourceTree = "<group>"; };
+		A9CB66DC255367B500881D6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9CB66E1255367B500881D6F /* VisionCertMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisionCertMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9CB66E5255367B500881D6F /* VisionCertMacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionCertMacUITests.swift; sourceTree = "<group>"; };
+		A9CB66E7255367B500881D6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A9CB66BE255367B200881D6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9CB66D3255367B500881D6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9CB66DE255367B500881D6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A9CB66B8255367B200881D6F = {
+			isa = PBXGroup;
+			children = (
+				A9CB66C3255367B200881D6F /* VisionCertMac */,
+				A9CB66D9255367B500881D6F /* VisionCertMacTests */,
+				A9CB66E4255367B500881D6F /* VisionCertMacUITests */,
+				A9CB66C2255367B200881D6F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A9CB66C2255367B200881D6F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9CB66C1255367B200881D6F /* VisionCertMac.app */,
+				A9CB66D6255367B500881D6F /* VisionCertMacTests.xctest */,
+				A9CB66E1255367B500881D6F /* VisionCertMacUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A9CB66C3255367B200881D6F /* VisionCertMac */ = {
+			isa = PBXGroup;
+			children = (
+				A9CB66C4255367B200881D6F /* AppDelegate.swift */,
+				A9CB66C6255367B200881D6F /* ContentView.swift */,
+				A9CB66C8255367B500881D6F /* Assets.xcassets */,
+				A9CB66CD255367B500881D6F /* Main.storyboard */,
+				A9CB66D0255367B500881D6F /* Info.plist */,
+				A9CB66D1255367B500881D6F /* VisionCertMac.entitlements */,
+				A9CB66CA255367B500881D6F /* Preview Content */,
+			);
+			path = VisionCertMac;
+			sourceTree = "<group>";
+		};
+		A9CB66CA255367B500881D6F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A9CB66CB255367B500881D6F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A9CB66D9255367B500881D6F /* VisionCertMacTests */ = {
+			isa = PBXGroup;
+			children = (
+				A9CB66DA255367B500881D6F /* VisionCertMacTests.swift */,
+				A9CB66DC255367B500881D6F /* Info.plist */,
+			);
+			path = VisionCertMacTests;
+			sourceTree = "<group>";
+		};
+		A9CB66E4255367B500881D6F /* VisionCertMacUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A9CB66E5255367B500881D6F /* VisionCertMacUITests.swift */,
+				A9CB66E7255367B500881D6F /* Info.plist */,
+			);
+			path = VisionCertMacUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A9CB66C0255367B200881D6F /* VisionCertMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9CB66EA255367B500881D6F /* Build configuration list for PBXNativeTarget "VisionCertMac" */;
+			buildPhases = (
+				A9CB66BD255367B200881D6F /* Sources */,
+				A9CB66BE255367B200881D6F /* Frameworks */,
+				A9CB66BF255367B200881D6F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VisionCertMac;
+			productName = VisionCertMac;
+			productReference = A9CB66C1255367B200881D6F /* VisionCertMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A9CB66D5255367B500881D6F /* VisionCertMacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9CB66ED255367B500881D6F /* Build configuration list for PBXNativeTarget "VisionCertMacTests" */;
+			buildPhases = (
+				A9CB66D2255367B500881D6F /* Sources */,
+				A9CB66D3255367B500881D6F /* Frameworks */,
+				A9CB66D4255367B500881D6F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9CB66D8255367B500881D6F /* PBXTargetDependency */,
+			);
+			name = VisionCertMacTests;
+			productName = VisionCertMacTests;
+			productReference = A9CB66D6255367B500881D6F /* VisionCertMacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A9CB66E0255367B500881D6F /* VisionCertMacUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9CB66F0255367B500881D6F /* Build configuration list for PBXNativeTarget "VisionCertMacUITests" */;
+			buildPhases = (
+				A9CB66DD255367B500881D6F /* Sources */,
+				A9CB66DE255367B500881D6F /* Frameworks */,
+				A9CB66DF255367B500881D6F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9CB66E3255367B500881D6F /* PBXTargetDependency */,
+			);
+			name = VisionCertMacUITests;
+			productName = VisionCertMacUITests;
+			productReference = A9CB66E1255367B500881D6F /* VisionCertMacUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A9CB66B9255367B200881D6F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1210;
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					A9CB66C0255367B200881D6F = {
+						CreatedOnToolsVersion = 12.1;
+					};
+					A9CB66D5255367B500881D6F = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = A9CB66C0255367B200881D6F;
+					};
+					A9CB66E0255367B500881D6F = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = A9CB66C0255367B200881D6F;
+					};
+				};
+			};
+			buildConfigurationList = A9CB66BC255367B200881D6F /* Build configuration list for PBXProject "VisionCertMac" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A9CB66B8255367B200881D6F;
+			productRefGroup = A9CB66C2255367B200881D6F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A9CB66C0255367B200881D6F /* VisionCertMac */,
+				A9CB66D5255367B500881D6F /* VisionCertMacTests */,
+				A9CB66E0255367B500881D6F /* VisionCertMacUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A9CB66BF255367B200881D6F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9CB66CF255367B500881D6F /* Main.storyboard in Resources */,
+				A9CB66CC255367B500881D6F /* Preview Assets.xcassets in Resources */,
+				A9CB66C9255367B500881D6F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9CB66D4255367B500881D6F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9CB66DF255367B500881D6F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A9CB66BD255367B200881D6F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9CB66C7255367B200881D6F /* ContentView.swift in Sources */,
+				A9CB66C5255367B200881D6F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9CB66D2255367B500881D6F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9CB66DB255367B500881D6F /* VisionCertMacTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9CB66DD255367B500881D6F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9CB66E6255367B500881D6F /* VisionCertMacUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9CB66D8255367B500881D6F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9CB66C0255367B200881D6F /* VisionCertMac */;
+			targetProxy = A9CB66D7255367B500881D6F /* PBXContainerItemProxy */;
+		};
+		A9CB66E3255367B500881D6F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9CB66C0255367B200881D6F /* VisionCertMac */;
+			targetProxy = A9CB66E2255367B500881D6F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A9CB66CD255367B500881D6F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9CB66CE255367B500881D6F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A9CB66E8255367B500881D6F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A9CB66E9255367B500881D6F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		A9CB66EB255367B500881D6F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = VisionCertMac/VisionCertMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"VisionCertMac/Preview Content\"";
+				DEVELOPMENT_TEAM = HS2HJ27PLP;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = VisionCertMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rry.VisionCertMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A9CB66EC255367B500881D6F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = VisionCertMac/VisionCertMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"VisionCertMac/Preview Content\"";
+				DEVELOPMENT_TEAM = HS2HJ27PLP;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = VisionCertMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rry.VisionCertMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A9CB66EE255367B500881D6F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = HS2HJ27PLP;
+				INFOPLIST_FILE = VisionCertMacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rry.VisionCertMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VisionCertMac.app/Contents/MacOS/VisionCertMac";
+			};
+			name = Debug;
+		};
+		A9CB66EF255367B500881D6F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = HS2HJ27PLP;
+				INFOPLIST_FILE = VisionCertMacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rry.VisionCertMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VisionCertMac.app/Contents/MacOS/VisionCertMac";
+			};
+			name = Release;
+		};
+		A9CB66F1255367B500881D6F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = HS2HJ27PLP;
+				INFOPLIST_FILE = VisionCertMacUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rry.VisionCertMacUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = VisionCertMac;
+			};
+			name = Debug;
+		};
+		A9CB66F2255367B500881D6F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = HS2HJ27PLP;
+				INFOPLIST_FILE = VisionCertMacUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rry.VisionCertMacUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = VisionCertMac;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A9CB66BC255367B200881D6F /* Build configuration list for PBXProject "VisionCertMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9CB66E8255367B500881D6F /* Debug */,
+				A9CB66E9255367B500881D6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9CB66EA255367B500881D6F /* Build configuration list for PBXNativeTarget "VisionCertMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9CB66EB255367B500881D6F /* Debug */,
+				A9CB66EC255367B500881D6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9CB66ED255367B500881D6F /* Build configuration list for PBXNativeTarget "VisionCertMacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9CB66EE255367B500881D6F /* Debug */,
+				A9CB66EF255367B500881D6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9CB66F0255367B500881D6F /* Build configuration list for PBXNativeTarget "VisionCertMacUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9CB66F1255367B500881D6F /* Debug */,
+				A9CB66F2255367B500881D6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A9CB66B9255367B200881D6F /* Project object */;
+}
