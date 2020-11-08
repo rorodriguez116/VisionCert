@@ -3,17 +3,40 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9AA9BDB2556F99400A66976 /* PhotoOutputProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AA9BDA2556F99400A66976 /* PhotoOutputProcessor.swift */; };
+		A9AA9BEB2556F9B600A66976 /* VisionCertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AA9BEA2556F9B600A66976 /* VisionCertService.swift */; };
+		A9AA9BFE2557890D00A66976 /* CertAnalyzerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F9BB172554F9D3009F255B /* CertAnalyzerView.swift */; };
+		A9AA9C1325578ECC00A66976 /* Web3 in Frameworks */ = {isa = PBXBuildFile; productRef = A9AA9C1225578ECC00A66976 /* Web3 */; };
+		A9AA9C1525578ED000A66976 /* Web3ContractABI in Frameworks */ = {isa = PBXBuildFile; productRef = A9AA9C1425578ED000A66976 /* Web3ContractABI */; };
+		A9AA9C1725578ED400A66976 /* Web3PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = A9AA9C1625578ED400A66976 /* Web3PromiseKit */; };
 		A9CB66C5255367B200881D6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB66C4255367B200881D6F /* AppDelegate.swift */; };
-		A9CB66C7255367B200881D6F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB66C6255367B200881D6F /* ContentView.swift */; };
+		A9CB66C7255367B200881D6F /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB66C6255367B200881D6F /* DashboardView.swift */; };
 		A9CB66C9255367B500881D6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9CB66C8255367B500881D6F /* Assets.xcassets */; };
 		A9CB66CC255367B500881D6F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9CB66CB255367B500881D6F /* Preview Assets.xcassets */; };
 		A9CB66CF255367B500881D6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9CB66CD255367B500881D6F /* Main.storyboard */; };
 		A9CB66DB255367B500881D6F /* VisionCertMacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB66DA255367B500881D6F /* VisionCertMacTests.swift */; };
 		A9CB66E6255367B500881D6F /* VisionCertMacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB66E5255367B500881D6F /* VisionCertMacUITests.swift */; };
+		A9CB66F725536D1500881D6F /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB66F625536D1500881D6F /* StringUtils.swift */; };
+		A9CB66FD255449E800881D6F /* Web3PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = A9CB66FC255449E800881D6F /* Web3PromiseKit */; };
+		A9CB66FF255449E800881D6F /* Web3ContractABI in Frameworks */ = {isa = PBXBuildFile; productRef = A9CB66FE255449E800881D6F /* Web3ContractABI */; };
+		A9CB6701255449E800881D6F /* Web3 in Frameworks */ = {isa = PBXBuildFile; productRef = A9CB6700255449E800881D6F /* Web3 */; };
+		A9CB670625544A0700881D6F /* BlockchainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB670525544A0700881D6F /* BlockchainManager.swift */; };
+		A9CB670B25544C0900881D6F /* NewCredentialManager.json in Resources */ = {isa = PBXBuildFile; fileRef = A9CB670A25544C0900881D6F /* NewCredentialManager.json */; };
+		A9CB67162554994900881D6F /* VisionCertApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB67152554994900881D6F /* VisionCertApp.swift */; };
+		A9CB67182554994900881D6F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB67172554994900881D6F /* ContentView.swift */; };
+		A9CB671A2554994C00881D6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9CB67192554994C00881D6F /* Assets.xcassets */; };
+		A9CB671D2554994C00881D6F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9CB671C2554994C00881D6F /* Preview Assets.xcassets */; };
+		A9CB67282554994C00881D6F /* VisionCertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB67272554994C00881D6F /* VisionCertTests.swift */; };
+		A9CB67332554994C00881D6F /* VisionCertUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB67322554994C00881D6F /* VisionCertUITests.swift */; };
+		A9F9BAF42554F94B009F255B /* CertAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F9BAF32554F94B009F255B /* CertAnalyzer.swift */; };
+		A9F9BAFB2554F954009F255B /* CertAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F9BAF32554F94B009F255B /* CertAnalyzer.swift */; };
+		A9F9BB032554F96F009F255B /* BlockchainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB670525544A0700881D6F /* BlockchainManager.swift */; };
+		A9F9BB0A2554F972009F255B /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB66F625536D1500881D6F /* StringUtils.swift */; };
+		A9F9BB182554F9D3009F255B /* CertAnalyzerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F9BB172554F9D3009F255B /* CertAnalyzerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,12 +54,28 @@
 			remoteGlobalIDString = A9CB66C0255367B200881D6F;
 			remoteInfo = VisionCertMac;
 		};
+		A9CB67242554994C00881D6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9CB66B9255367B200881D6F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9CB67122554994900881D6F;
+			remoteInfo = VisionCert;
+		};
+		A9CB672F2554994C00881D6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9CB66B9255367B200881D6F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9CB67122554994900881D6F;
+			remoteInfo = VisionCert;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A9AA9BDA2556F99400A66976 /* PhotoOutputProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoOutputProcessor.swift; sourceTree = "<group>"; };
+		A9AA9BEA2556F9B600A66976 /* VisionCertService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionCertService.swift; sourceTree = "<group>"; };
 		A9CB66C1255367B200881D6F /* VisionCertMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisionCertMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CB66C4255367B200881D6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A9CB66C6255367B200881D6F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A9CB66C6255367B200881D6F /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		A9CB66C8255367B500881D6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9CB66CB255367B500881D6F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A9CB66CE255367B500881D6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,6 +87,23 @@
 		A9CB66E1255367B500881D6F /* VisionCertMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisionCertMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CB66E5255367B500881D6F /* VisionCertMacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionCertMacUITests.swift; sourceTree = "<group>"; };
 		A9CB66E7255367B500881D6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9CB66F625536D1500881D6F /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		A9CB670525544A0700881D6F /* BlockchainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainManager.swift; sourceTree = "<group>"; };
+		A9CB670A25544C0900881D6F /* NewCredentialManager.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NewCredentialManager.json; sourceTree = "<group>"; };
+		A9CB67132554994900881D6F /* VisionCert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisionCert.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9CB67152554994900881D6F /* VisionCertApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionCertApp.swift; sourceTree = "<group>"; };
+		A9CB67172554994900881D6F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A9CB67192554994C00881D6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A9CB671C2554994C00881D6F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A9CB671E2554994C00881D6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9CB67232554994C00881D6F /* VisionCertTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisionCertTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9CB67272554994C00881D6F /* VisionCertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionCertTests.swift; sourceTree = "<group>"; };
+		A9CB67292554994C00881D6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9CB672E2554994C00881D6F /* VisionCertUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisionCertUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9CB67322554994C00881D6F /* VisionCertUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionCertUITests.swift; sourceTree = "<group>"; };
+		A9CB67342554994C00881D6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9F9BAF32554F94B009F255B /* CertAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertAnalyzer.swift; sourceTree = "<group>"; };
+		A9F9BB172554F9D3009F255B /* CertAnalyzerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertAnalyzerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +111,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9CB6701255449E800881D6F /* Web3 in Frameworks */,
+				A9CB66FF255449E800881D6F /* Web3ContractABI in Frameworks */,
+				A9CB66FD255449E800881D6F /* Web3PromiseKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,16 +131,52 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A9CB67102554994900881D6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9AA9C1525578ED000A66976 /* Web3ContractABI in Frameworks */,
+				A9AA9C1725578ED400A66976 /* Web3PromiseKit in Frameworks */,
+				A9AA9C1325578ECC00A66976 /* Web3 in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9CB67202554994C00881D6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9CB672B2554994C00881D6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A9AA9C1125578ECC00A66976 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A9CB66B8255367B200881D6F = {
 			isa = PBXGroup;
 			children = (
+				A9F9BB022554F95B009F255B /* Shared */,
 				A9CB66C3255367B200881D6F /* VisionCertMac */,
 				A9CB66D9255367B500881D6F /* VisionCertMacTests */,
 				A9CB66E4255367B500881D6F /* VisionCertMacUITests */,
+				A9CB67142554994900881D6F /* VisionCert */,
+				A9CB67262554994C00881D6F /* VisionCertTests */,
+				A9CB67312554994C00881D6F /* VisionCertUITests */,
 				A9CB66C2255367B200881D6F /* Products */,
+				A9AA9C1125578ECC00A66976 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +186,9 @@
 				A9CB66C1255367B200881D6F /* VisionCertMac.app */,
 				A9CB66D6255367B500881D6F /* VisionCertMacTests.xctest */,
 				A9CB66E1255367B500881D6F /* VisionCertMacUITests.xctest */,
+				A9CB67132554994900881D6F /* VisionCert.app */,
+				A9CB67232554994C00881D6F /* VisionCertTests.xctest */,
+				A9CB672E2554994C00881D6F /* VisionCertUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,12 +197,13 @@
 			isa = PBXGroup;
 			children = (
 				A9CB66C4255367B200881D6F /* AppDelegate.swift */,
-				A9CB66C6255367B200881D6F /* ContentView.swift */,
+				A9CB66C6255367B200881D6F /* DashboardView.swift */,
 				A9CB66C8255367B500881D6F /* Assets.xcassets */,
 				A9CB66CD255367B500881D6F /* Main.storyboard */,
 				A9CB66D0255367B500881D6F /* Info.plist */,
 				A9CB66D1255367B500881D6F /* VisionCertMac.entitlements */,
 				A9CB66CA255367B500881D6F /* Preview Content */,
+				A9CB670A25544C0900881D6F /* NewCredentialManager.json */,
 			);
 			path = VisionCertMac;
 			sourceTree = "<group>";
@@ -135,6 +234,57 @@
 			path = VisionCertMacUITests;
 			sourceTree = "<group>";
 		};
+		A9CB67142554994900881D6F /* VisionCert */ = {
+			isa = PBXGroup;
+			children = (
+				A9AA9BDA2556F99400A66976 /* PhotoOutputProcessor.swift */,
+				A9AA9BEA2556F9B600A66976 /* VisionCertService.swift */,
+				A9CB67152554994900881D6F /* VisionCertApp.swift */,
+				A9CB67172554994900881D6F /* ContentView.swift */,
+				A9CB67192554994C00881D6F /* Assets.xcassets */,
+				A9CB671E2554994C00881D6F /* Info.plist */,
+				A9CB671B2554994C00881D6F /* Preview Content */,
+			);
+			path = VisionCert;
+			sourceTree = "<group>";
+		};
+		A9CB671B2554994C00881D6F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A9CB671C2554994C00881D6F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A9CB67262554994C00881D6F /* VisionCertTests */ = {
+			isa = PBXGroup;
+			children = (
+				A9CB67272554994C00881D6F /* VisionCertTests.swift */,
+				A9CB67292554994C00881D6F /* Info.plist */,
+			);
+			path = VisionCertTests;
+			sourceTree = "<group>";
+		};
+		A9CB67312554994C00881D6F /* VisionCertUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A9CB67322554994C00881D6F /* VisionCertUITests.swift */,
+				A9CB67342554994C00881D6F /* Info.plist */,
+			);
+			path = VisionCertUITests;
+			sourceTree = "<group>";
+		};
+		A9F9BB022554F95B009F255B /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A9CB66F625536D1500881D6F /* StringUtils.swift */,
+				A9F9BAF32554F94B009F255B /* CertAnalyzer.swift */,
+				A9CB670525544A0700881D6F /* BlockchainManager.swift */,
+				A9F9BB172554F9D3009F255B /* CertAnalyzerView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,6 +301,11 @@
 			dependencies = (
 			);
 			name = VisionCertMac;
+			packageProductDependencies = (
+				A9CB66FC255449E800881D6F /* Web3PromiseKit */,
+				A9CB66FE255449E800881D6F /* Web3ContractABI */,
+				A9CB6700255449E800881D6F /* Web3 */,
+			);
 			productName = VisionCertMac;
 			productReference = A9CB66C1255367B200881D6F /* VisionCertMac.app */;
 			productType = "com.apple.product-type.application";
@@ -191,6 +346,64 @@
 			productReference = A9CB66E1255367B500881D6F /* VisionCertMacUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		A9CB67122554994900881D6F /* VisionCert */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9CB67352554994C00881D6F /* Build configuration list for PBXNativeTarget "VisionCert" */;
+			buildPhases = (
+				A9CB670F2554994900881D6F /* Sources */,
+				A9CB67102554994900881D6F /* Frameworks */,
+				A9CB67112554994900881D6F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VisionCert;
+			packageProductDependencies = (
+				A9AA9C1225578ECC00A66976 /* Web3 */,
+				A9AA9C1425578ED000A66976 /* Web3ContractABI */,
+				A9AA9C1625578ED400A66976 /* Web3PromiseKit */,
+			);
+			productName = VisionCert;
+			productReference = A9CB67132554994900881D6F /* VisionCert.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A9CB67222554994C00881D6F /* VisionCertTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9CB67382554994C00881D6F /* Build configuration list for PBXNativeTarget "VisionCertTests" */;
+			buildPhases = (
+				A9CB671F2554994C00881D6F /* Sources */,
+				A9CB67202554994C00881D6F /* Frameworks */,
+				A9CB67212554994C00881D6F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9CB67252554994C00881D6F /* PBXTargetDependency */,
+			);
+			name = VisionCertTests;
+			productName = VisionCertTests;
+			productReference = A9CB67232554994C00881D6F /* VisionCertTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A9CB672D2554994C00881D6F /* VisionCertUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9CB673B2554994C00881D6F /* Build configuration list for PBXNativeTarget "VisionCertUITests" */;
+			buildPhases = (
+				A9CB672A2554994C00881D6F /* Sources */,
+				A9CB672B2554994C00881D6F /* Frameworks */,
+				A9CB672C2554994C00881D6F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9CB67302554994C00881D6F /* PBXTargetDependency */,
+			);
+			name = VisionCertUITests;
+			productName = VisionCertUITests;
+			productReference = A9CB672E2554994C00881D6F /* VisionCertUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -211,6 +424,17 @@
 						CreatedOnToolsVersion = 12.1;
 						TestTargetID = A9CB66C0255367B200881D6F;
 					};
+					A9CB67122554994900881D6F = {
+						CreatedOnToolsVersion = 12.1;
+					};
+					A9CB67222554994C00881D6F = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = A9CB67122554994900881D6F;
+					};
+					A9CB672D2554994C00881D6F = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = A9CB67122554994900881D6F;
+					};
 				};
 			};
 			buildConfigurationList = A9CB66BC255367B200881D6F /* Build configuration list for PBXProject "VisionCertMac" */;
@@ -222,6 +446,9 @@
 				Base,
 			);
 			mainGroup = A9CB66B8255367B200881D6F;
+			packageReferences = (
+				A9CB66FB255449E800881D6F /* XCRemoteSwiftPackageReference "Web3.swift" */,
+			);
 			productRefGroup = A9CB66C2255367B200881D6F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -229,6 +456,9 @@
 				A9CB66C0255367B200881D6F /* VisionCertMac */,
 				A9CB66D5255367B500881D6F /* VisionCertMacTests */,
 				A9CB66E0255367B500881D6F /* VisionCertMacUITests */,
+				A9CB67122554994900881D6F /* VisionCert */,
+				A9CB67222554994C00881D6F /* VisionCertTests */,
+				A9CB672D2554994C00881D6F /* VisionCertUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -239,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9CB66CF255367B500881D6F /* Main.storyboard in Resources */,
+				A9CB670B25544C0900881D6F /* NewCredentialManager.json in Resources */,
 				A9CB66CC255367B500881D6F /* Preview Assets.xcassets in Resources */,
 				A9CB66C9255367B500881D6F /* Assets.xcassets in Resources */,
 			);
@@ -258,6 +489,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A9CB67112554994900881D6F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9CB671D2554994C00881D6F /* Preview Assets.xcassets in Resources */,
+				A9CB671A2554994C00881D6F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9CB67212554994C00881D6F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9CB672C2554994C00881D6F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -265,8 +519,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9CB66C7255367B200881D6F /* ContentView.swift in Sources */,
+				A9F9BAF42554F94B009F255B /* CertAnalyzer.swift in Sources */,
+				A9CB66F725536D1500881D6F /* StringUtils.swift in Sources */,
+				A9F9BB182554F9D3009F255B /* CertAnalyzerView.swift in Sources */,
+				A9CB66C7255367B200881D6F /* DashboardView.swift in Sources */,
 				A9CB66C5255367B200881D6F /* AppDelegate.swift in Sources */,
+				A9CB670625544A0700881D6F /* BlockchainManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +544,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A9CB670F2554994900881D6F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9AA9BFE2557890D00A66976 /* CertAnalyzerView.swift in Sources */,
+				A9CB67182554994900881D6F /* ContentView.swift in Sources */,
+				A9F9BB0A2554F972009F255B /* StringUtils.swift in Sources */,
+				A9AA9BDB2556F99400A66976 /* PhotoOutputProcessor.swift in Sources */,
+				A9CB67162554994900881D6F /* VisionCertApp.swift in Sources */,
+				A9AA9BEB2556F9B600A66976 /* VisionCertService.swift in Sources */,
+				A9F9BAFB2554F954009F255B /* CertAnalyzer.swift in Sources */,
+				A9F9BB032554F96F009F255B /* BlockchainManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9CB671F2554994C00881D6F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9CB67282554994C00881D6F /* VisionCertTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9CB672A2554994C00881D6F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9CB67332554994C00881D6F /* VisionCertUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -298,6 +587,16 @@
 			isa = PBXTargetDependency;
 			target = A9CB66C0255367B200881D6F /* VisionCertMac */;
 			targetProxy = A9CB66E2255367B500881D6F /* PBXContainerItemProxy */;
+		};
+		A9CB67252554994C00881D6F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9CB67122554994900881D6F /* VisionCert */;
+			targetProxy = A9CB67242554994C00881D6F /* PBXContainerItemProxy */;
+		};
+		A9CB67302554994C00881D6F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9CB67122554994900881D6F /* VisionCert */;
+			targetProxy = A9CB672F2554994C00881D6F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -560,6 +859,145 @@
 			};
 			name = Release;
 		};
+		A9CB67362554994C00881D6F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"VisionCert/Preview Content\"";
+				DEVELOPMENT_TEAM = HS2HJ27PLP;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = VisionCert/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rry.VisionCert;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A9CB67372554994C00881D6F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"VisionCert/Preview Content\"";
+				DEVELOPMENT_TEAM = HS2HJ27PLP;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = VisionCert/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rry.VisionCert;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A9CB67392554994C00881D6F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HS2HJ27PLP;
+				INFOPLIST_FILE = VisionCertTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rry.VisionCertTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VisionCert.app/VisionCert";
+			};
+			name = Debug;
+		};
+		A9CB673A2554994C00881D6F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HS2HJ27PLP;
+				INFOPLIST_FILE = VisionCertTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rry.VisionCertTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VisionCert.app/VisionCert";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A9CB673C2554994C00881D6F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HS2HJ27PLP;
+				INFOPLIST_FILE = VisionCertUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rry.VisionCertUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VisionCert;
+			};
+			name = Debug;
+		};
+		A9CB673D2554994C00881D6F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HS2HJ27PLP;
+				INFOPLIST_FILE = VisionCertUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rry.VisionCertUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VisionCert;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -599,7 +1037,78 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		A9CB67352554994C00881D6F /* Build configuration list for PBXNativeTarget "VisionCert" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9CB67362554994C00881D6F /* Debug */,
+				A9CB67372554994C00881D6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9CB67382554994C00881D6F /* Build configuration list for PBXNativeTarget "VisionCertTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9CB67392554994C00881D6F /* Debug */,
+				A9CB673A2554994C00881D6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9CB673B2554994C00881D6F /* Build configuration list for PBXNativeTarget "VisionCertUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9CB673C2554994C00881D6F /* Debug */,
+				A9CB673D2554994C00881D6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A9CB66FB255449E800881D6F /* XCRemoteSwiftPackageReference "Web3.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Boilertalk/Web3.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A9AA9C1225578ECC00A66976 /* Web3 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A9CB66FB255449E800881D6F /* XCRemoteSwiftPackageReference "Web3.swift" */;
+			productName = Web3;
+		};
+		A9AA9C1425578ED000A66976 /* Web3ContractABI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A9CB66FB255449E800881D6F /* XCRemoteSwiftPackageReference "Web3.swift" */;
+			productName = Web3ContractABI;
+		};
+		A9AA9C1625578ED400A66976 /* Web3PromiseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A9CB66FB255449E800881D6F /* XCRemoteSwiftPackageReference "Web3.swift" */;
+			productName = Web3PromiseKit;
+		};
+		A9CB66FC255449E800881D6F /* Web3PromiseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A9CB66FB255449E800881D6F /* XCRemoteSwiftPackageReference "Web3.swift" */;
+			productName = Web3PromiseKit;
+		};
+		A9CB66FE255449E800881D6F /* Web3ContractABI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A9CB66FB255449E800881D6F /* XCRemoteSwiftPackageReference "Web3.swift" */;
+			productName = Web3ContractABI;
+		};
+		A9CB6700255449E800881D6F /* Web3 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A9CB66FB255449E800881D6F /* XCRemoteSwiftPackageReference "Web3.swift" */;
+			productName = Web3;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A9CB66B9255367B200881D6F /* Project object */;
 }
