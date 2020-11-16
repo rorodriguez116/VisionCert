@@ -12,9 +12,11 @@ struct DashboardView: View {
     @ObservedObject var analyzer: CertAnalyzer
     @ObservedObject var manager: BlockchainManager
     
-    @State var load = false
+    var load: Bool {
+        analyzer.frontImage != nil
+    }
+    
     @State var resultColor = Color.white
-    @State var isWorking = false
     
     var body: some View {
         ZStack {
@@ -45,14 +47,16 @@ struct DashboardView: View {
                     
                     Text("Resultado obtenido:")
                         .font(.headline)
-                        .padding(.bottom, 30)
+                        .padding(.bottom, 10)
                     
-                  
-
-                    if analyzer.found != "" {
-                   
+                    if analyzer.selectedCertificate != nil && analyzer.selectedCertificate?.hash != "" {
+                        Text("HASH: \(analyzer.selectedCertificate!.hash)")
+                            .padding(.bottom, 30)
+                    }
+                    
+                    if analyzer.selectedCertificate != nil {
                         ScrollView(.vertical) {
-                            Text(analyzer.found)
+                            Text(analyzer.selectedCertificate!.fullText)
                                 .foregroundColor(resultColor)
                                 .fixedSize()
                                 .multilineTextAlignment(.leading)
@@ -62,60 +66,98 @@ struct DashboardView: View {
                             .fixedSize()
                             .multilineTextAlignment(.leading)
                     }
-                
-                Spacer()
-                               
-                HStack {
-                    Button("Cargar Certificado") {
-                        load.toggle()
-                    }
-                    .disabled(load)
                     
-                    Button("Extraer características") {
-                        analyzer.analyzePhoto()
-                    }
-                    .disabled(!load)
+                    Spacer()
                     
-                    Button("Registrar") {
-                        manager.writeValueToSmartContract()
-//                        isWorking.toggle()
-//                        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-//                            isWorking.toggle()
-//                        }
-                    }
-                    .disabled(!load)
+                    HStack {
+                        Button("Registrar") {
+                            if analyzer.selectedCertificate != nil {
+                                manager.writeValueToSmartContract(with: analyzer.selectedCertificate!.hash)
+                            }
+                        }
+                        .disabled(!load && !manager.isWorking)
 
+                        
+                        Button("Validar") {
+                            if analyzer.selectedCertificate != nil {
+                                manager.readValueFromSmartContract(analyzer.selectedCertificate!.hash)
+                            } else {
+                                print("Will not run verification on Blockchain with an empty value")
+                            }
+                        }
+                        .disabled(!load && !manager.isWorking)
+                        
+                    }
+                }
+                
+                VStack(spacing: 25) {
+                    if analyzer.selectedCertificate != nil {
+                        ScrollView {
+                            VStack(spacing: 5) {
+                                Image(nsImage: analyzer.frontImage!)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .overlay(
+                                        CertAnalyzerView(boxes: ObservationsGroup(text: analyzer.selectedCertificate!.frontPage.boxes, rectangles: analyzer.rectangleObservations))
+                                    )
+                                    .frame(width: 800, height: 500)
+                                
+                                if analyzer.backImage != nil {
+                                    Image(nsImage: analyzer.backImage!)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .overlay(
+                                            CertAnalyzerView(boxes: ObservationsGroup(text: analyzer.selectedCertificate!.backPage.boxes, rectangles: analyzer.rectangleObservations))
+                                        )
+                                        .frame(width: 800, height: 500)
+                                }
+                            }
+                        }
+                    } else {
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color.gray, lineWidth: 6)
+                            .overlay(Text("Carga el anverso y reverso de tu certificado."))
+                            .frame(width: 800, height: 500)
+                            
+                    }
                     
-                    Button("Validar") {
-                        if analyzer.hash != "" {
-                            manager.readValueFromSmartContract(analyzer.hash)
-                        } else {
-                            print("Will not run verification on Blockchain with an empty value")
+                    if analyzer.certificates.count > 0 {
+                        HStack {
+                            Button("<") {
+                                analyzer.showPrev()
+                            }
+                            
+                            Text("\(analyzer.currentIndex + 1)/\(analyzer.certificates.count)")
+                            
+                            Button(">") {
+                                analyzer.showNext()
+                            }
+                            .disabled(!load)
                         }
                     }
-                    .disabled(!load)
-
+                    
+                    HStack {
+                        Button("Cargar Anversos") {
+                            resultColor = .white
+                            analyzer.selectFiles(for: .front)
+                        }
+                        
+                        Button("Cargar Reversos") {
+                            resultColor = .white
+                            analyzer.selectFiles(for: .back)
+                        }
+                        
+                        Button("Extraer características") {
+                            analyzer.process()
+                        }
+                        .disabled(!load || analyzer.selectedCertificate?.backPage.fileUrl == nil)
+                    }
                 }
             }
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             
-            if load {
-                Image("back")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .overlay(
-                        CertAnalyzerView(boxes: ObservationsGroup(text: analyzer.textObservations, rectangles: analyzer.rectangleObservations))
-                    )
-                    .frame(width: 800, height: 500)
-            } else {
-                RoundedRectangle(cornerRadius: 12)
-                    .stroke(Color.gray, lineWidth: 6)
-                    .frame(width: 800, height: 500)
-            }
-        }
-        .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
-            if isWorking {
+            if analyzer.isLoading {
                 Color.black
                     .opacity(0.6)
                     .edgesIgnoringSafeArea(.all)
@@ -132,6 +174,20 @@ struct DashboardView: View {
             }
         })
         
+    }
+    
+    private func selectFile() {
+        let openPanel = NSOpenPanel()
+        openPanel.allowsMultipleSelection = false
+        openPanel.canChooseDirectories = false
+        openPanel.canCreateDirectories = false
+        openPanel.canChooseFiles = true
+        openPanel.begin { (result) in
+            if result == .OK, let url = openPanel.url {
+                analyzer.textObservations.removeAll()
+                analyzer.frontImage = NSImage(contentsOf: url)
+            }
+        }
     }
 }
 

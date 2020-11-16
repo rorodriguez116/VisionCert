@@ -39,37 +39,48 @@ struct CertAnalyzerView {
         #endif
         
         DispatchQueue.main.async {
+            view.subviews.forEach { $0.removeFromSuperview() }
+        
             for group in [boxGroups.text, boxGroups.rectangles] {
                 for box in group {
                     let size = view.frame.size
-                    let transform = CGAffineTransform.identity
-                        .translatedBy(x: 0, y: size.height)
-                        .scaledBy(x: 1, y: -1)
-                        .scaledBy(x: size.width, y: -size.height)
                     
-                    let convertedTopLeft = box.topLeft.applying(transform)
-                    let convertedTopRight = box.topRight.applying(transform)
-                    let convertedBottomLeft = box.bottomLeft.applying(transform)
-                    let convertedBottomRight = box.bottomRight.applying(transform)
+//                    MARK: Working transform for macOS
+                                        
+//                    let transform = CGAffineTransform.identity
+//                        .translatedBy(x: 0, y: size.height)
+//                        .scaledBy(x: 1, y: -1)
+//                        .scaledBy(x: size.width, y: -size.height)
                     
-                    let rect = CGRect(x: convertedBottomLeft.x, y: convertedBottomRight.y - size.height, width: convertedBottomRight.x - convertedBottomLeft.x, height: convertedTopRight.y - convertedBottomRight.y)
+                    let rect = VNImageRectForNormalizedRect(box.boundingBox, Int(size.width), Int(size.height))
+
+                                        
+//                    MARK: Rect working on macOS
+//                    let rect = CGRect(x: convertedBottomLeft.x, y: convertedBottomRight.y - size.height, width: convertedBottomRight.x - convertedBottomLeft.x, height: convertedTopRight.y - convertedBottomRight.y)
                     
-                    print(rect)
-                    
-                    
-                    let holder = NSView(frame: rect)
-                    
+                                        
                     let layer = CAShapeLayer()
-                    
-                    layer.borderColor = NSColor.blue.cgColor
                     layer.borderWidth = 2
                     layer.frame = rect
                     
+                    #if os(macOS)
+
+                    let holder = NSView(frame: rect)
+                    layer.borderColor = NSColor.blue.cgColor
                     holder.layer = layer
                     holder.wantsLayer = true
-                    
                     holder.layer?.backgroundColor = NSColor.red.cgColor
                     holder.layer?.opacity = 0.3
+
+                    #else
+                    let holder = UIView(frame: rect)
+                    layer.borderColor = UIColor.blue.cgColor
+                    layer.backgroundColor = UIColor.red.cgColor
+                    layer.opacity = 0.3
+                    holder.layer.addSublayer(layer)
+                    #endif
+                    
+                    
                     view.addSubview(holder)
                 }
             }
@@ -101,14 +112,14 @@ extension CertAnalyzerView: NSViewRepresentable {
 extension CertAnalyzerView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> UIView {
-        let holder = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
-        holder.backgroundColor = UIColor.clear.cgColor
+        let holder = UIView()
+        holder.backgroundColor = UIColor.clear
         show(boxGroups: boxes, view: holder)
         return holder
     }
     
     func updateUIView(_ uiView: UIView, context: Context) {
-        show(boxGroups: boxes, view: nsView)
+        show(boxGroups: boxes, view: uiView)
     }
 }
 

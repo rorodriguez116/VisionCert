@@ -1,0 +1,94 @@
+[{
+  "inputs": [],
+  "payable": false,
+  "stateMutability": "nonpayable",
+  "type": "constructor"
+},
+{
+  "constant": true,
+  "inputs": [
+    {
+      "internalType": "string",
+      "name": "",
+      "type": "string"
+    }
+  ],
+  "name": "hashes",
+  "outputs": [
+    {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+    }
+  ],
+  "payable": false,
+  "stateMutability": "view",
+  "type": "function"
+},
+{
+  "constant": true,
+  "inputs": [
+    {
+      "internalType": "string",
+      "name": "_credential",
+      "type": "string"
+    }
+  ],
+  "name": "verify",
+  "outputs": [
+    {
+      "internalType": "bool",
+      "name": "",
+      "type": "bool"
+    }
+  ],
+  "payable": false,
+  "stateMutability": "view",
+  "type": "function"
+},
+{
+  "constant": false,
+  "inputs": [
+    {
+      "internalType": "string",
+      "name": "_credential",
+      "type": "string"
+    }
+  ],
+  "name": "register",
+  "outputs": [],
+  "payable": false,
+  "stateMutability": "nonpayable",
+  "type": "function"
+},
+{
+  "constant": false,
+  "inputs": [
+    {
+      "internalType": "string[]",
+      "name": "_credentials",
+      "type": "string[]"
+    }
+  ],
+  "name": "batchRegister",
+  "outputs": [],
+  "payable": false,
+  "stateMutability": "nonpayable",
+  "type": "function"
+},
+{
+  "constant": false,
+  "inputs": [
+    {
+      "internalType": "string",
+      "name": "_credential",
+      "type": "string"
+    }
+  ],
+  "name": "remove",
+  "outputs": [],
+  "payable": false,
+  "stateMutability": "nonpayable",
+  "type": "function"
+}
+]

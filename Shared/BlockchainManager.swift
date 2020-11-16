@@ -19,6 +19,7 @@ class BlockchainManager: ObservableObject {
     }
     
     @Published var validationState = ValidationState.none
+    @Published var isWorking = false
     
     let web3 = Web3(rpcURL: "http://192.168.0.4:8543")
     
@@ -43,10 +44,15 @@ class BlockchainManager: ObservableObject {
         }
     }
     
-    func writeValueToSmartContract() {
+    func batchWrite(values: [String]) {
+        
+    }
+    
+    func writeValueToSmartContract(with value: String) {
+//        Previous contract address: 0x8A9eB61240D5693E5f3cc0f9f18a7A7ea6e3E4A6
         do {
-            let contractAddress = try EthereumAddress(hex: "0x8A9eB61240D5693E5f3cc0f9f18a7A7ea6e3E4A6", eip55: true)
-            guard let path = Bundle.main.path(forResource: "NewCredentialManager", ofType: "json") else { return }
+            let contractAddress = try EthereumAddress(hex: "0xE662ddB18d73E825dBddc47003d0351871Cac5a7", eip55: true)
+            guard let path = Bundle.main.path(forResource: "SC4", ofType: "json") else { return }
             let url = URL(fileURLWithPath: path)
             let jsonData = try? Data(contentsOf: url)
             
@@ -56,9 +62,9 @@ class BlockchainManager: ObservableObject {
             let myPrivateKey = try EthereumPrivateKey(hexPrivateKey: "1fe509288ba0ccff67be00a08342b19bcbfabade39d8e52e5fddc7b8d425f732")
             //             Get gas price to write contract transaction
             firstly {
-                contract["add"]!("test1").estimateGas()
+                contract["verify"]!(value).estimateGas()
             }.done { [weak self] gas in
-               try self?.getNonce(for: contract, gas: gas, privateKey: myPrivateKey)
+               try self?.getNonce(for: contract, value: value, gas: gas, privateKey: myPrivateKey)
             }.catch { error in
                 print("Error writeValueToSmartContract: ", error)
             }
@@ -70,23 +76,20 @@ class BlockchainManager: ObservableObject {
         }
     }
     
-    func getNonce(for contract: DynamicContract, gas: EthereumQuantity, privateKey: EthereumPrivateKey) throws {
+    func getNonce(for contract: DynamicContract, value: String, gas: EthereumQuantity, privateKey: EthereumPrivateKey) throws {
         firstly {
             self.web3.eth.getTransactionCount(address: privateKey.address, block: .latest)
         }.done { [weak self] nonce in
-           try self?.buildTransactionWith(contract: contract, gas: gas, nonce: nonce, privateKey: privateKey)
+            try self?.buildTransactionWith(contract: contract, value: value, gas: gas, nonce: nonce, privateKey: privateKey)
         }.catch { error in
             print("Error getNonce:", error)
         }
     }
     
-    func buildTransactionWith(contract: DynamicContract, gas: EthereumQuantity, nonce: EthereumQuantity, privateKey: EthereumPrivateKey) throws {
+    func buildTransactionWith(contract: DynamicContract, value: String, gas: EthereumQuantity, nonce: EthereumQuantity, privateKey: EthereumPrivateKey) throws {
         print("Nonce for write:", nonce, "Estimated gas:", gas)
-        let gasPrice = EthereumQuantity(quantity: 30000)
-        let value = EthereumQuantity(quantity: 3000)
-        print("Estimated gas:", gas, "Gas price: ", gasPrice, "Value:", value)
         
-        guard let transaction = contract["add"]?("carcochain").createTransaction(nonce: nonce, from: privateKey.address, value: 0, gas: 4097301, gasPrice: EthereumQuantity(quantity: 20.gwei)) else { return }
+        guard let transaction = contract["register"]?(value).createTransaction(nonce: nonce, from: privateKey.address, value: 0, gas: 4097301, gasPrice: EthereumQuantity(quantity: 20.gwei)) else { return }
         
         let signexTx = try transaction.sign(with: privateKey, chainId: 2020)
         
@@ -94,6 +97,10 @@ class BlockchainManager: ObservableObject {
     }
     
     func writeContract(with signexTx: EthereumSignedTransaction) {
+        DispatchQueue.main.async {
+            self.isWorking = true
+        }
+        
         firstly {
             web3.eth.sendRawTransaction(transaction: signexTx)
         }
@@ -113,6 +120,9 @@ class BlockchainManager: ObservableObject {
             web3.eth.getTransactionReceipt(transactionHash: txHash)
         }.done { output in
             print("Receipt Output:", output)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.isWorking = false
+            }
         }.catch { error in
             print("Error on getReceipt: ", error)
         }
@@ -120,8 +130,8 @@ class BlockchainManager: ObservableObject {
     
     func readValueFromSmartContract(_ value: String) {
         do {
-            let contractAddress = try EthereumAddress(hex: "0x8A9eB61240D5693E5f3cc0f9f18a7A7ea6e3E4A6", eip55: true)
-            guard let path = Bundle.main.path(forResource: "NewCredentialManager", ofType: "json") else { return }
+            let contractAddress = try EthereumAddress(hex: "0xE662ddB18d73E825dBddc47003d0351871Cac5a7", eip55: true)
+            guard let path = Bundle.main.path(forResource: "SC4", ofType: "json") else { return }
             let url = URL(fileURLWithPath: path)
             let jsonData = try? Data(contentsOf: url)
             
@@ -134,7 +144,7 @@ class BlockchainManager: ObservableObject {
             }.done { [weak self] outputs in
                 guard let output = outputs.first?.value as? Bool else { return }
                 self?.validationState = output ? .valid : .invalid
-                print(output)
+                print("Verification status for \(value)", output)
             }.catch { error in
                 print(error)
             }

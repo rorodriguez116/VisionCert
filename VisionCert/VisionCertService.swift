@@ -12,6 +12,7 @@ import UIKit
 import AVFoundation
 import Vision
 import CryptoKit
+import Combine
 
 extension AVCaptureVideoOrientation {
     init?(deviceOrientation: UIDeviceOrientation) {
@@ -25,7 +26,7 @@ extension AVCaptureVideoOrientation {
     }
 }
 
-class VisionCertService: ObservableObject {
+class VisionCertService: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     let analyzer = CertAnalyzer()
     // MARK: - UI objects
     var maskLayer = CAShapeLayer()
@@ -35,6 +36,16 @@ class VisionCertService: ObservableObject {
     
     // MARK: - Capture related objects
     @Published var captureSession = AVCaptureSession()
+    
+    @Published var textObservations = [VNRecognizedTextObservation]()
+    
+    @Published var rectangleObservations = [VNRectangleObservation]()
+    
+    @Published var videoOrientation = AVCaptureVideoOrientation.portrait
+    
+    @Published var isTorchOn = false
+    
+    @Published var shouldShowResults = false
     
     let captureSessionQueue = DispatchQueue(label: "com.rry.visioncert.CaptureSessionQueue")
     
@@ -59,15 +70,37 @@ class VisionCertService: ObservableObject {
     var uiRotationTransform = CGAffineTransform.identity
     // Transform bottom-left coordinates to top-left.
     var bottomToTopTransform = CGAffineTransform(scaleX: 1, y: -1).translatedBy(x: 0, y: -1)
-    // Transform coordinates in ROI to global coordinates (still normalized).
-    var roiToGlobalTransform = CGAffineTransform.identity
     
     // Vision -> AVF coordinate transform.
-    var visionToAVFTransform = CGAffineTransform.identity
+    @Published var visionToAVFTransform = CGAffineTransform.identity
     
-    init() {
+    private var subscriptions = Set<AnyCancellable>()
+    
+    override init() {
+        super.init()
         // Starting the capture session is a blocking call. Perform setup using
         // a dedicated serial dispatch queue to prevent blocking the main thread.
+        
+        analyzer.$textObservations
+            .receive(on: RunLoop.main)
+            .sink { [weak self] (observation) in
+            self?.textObservations = observation
+        }
+        .store(in: &self.subscriptions)
+            
+        analyzer.$shouldShowResults
+            .receive(on: RunLoop.main)
+            .sink { [weak self] (val) in
+                self?.shouldShowResults = val 
+            }
+            .store(in: &self.subscriptions)
+        
+        
+        NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification).sink { [weak self] (_) in
+            self?.updateOrientation()
+        }
+        .store(in: &self.subscriptions)
+        
         captureSessionQueue.async {
             self.setupCamera()
             
@@ -79,7 +112,7 @@ class VisionCertService: ObservableObject {
         }
     }
     
-    func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    func updateOrientation() {
 
         // Only change the current orientation if the new one is landscape or
         // portrait. You can't really do anything about flat or unknown.
@@ -87,26 +120,17 @@ class VisionCertService: ObservableObject {
         if deviceOrientation.isPortrait || deviceOrientation.isLandscape {
             currentOrientation = deviceOrientation
         }
-        
+
         // Handle device orientation in the preview layer.
-        if let videoPreviewLayerConnection = previewView.videoPreviewLayer.connection {
-            if let newVideoOrientation = AVCaptureVideoOrientation(deviceOrientation: deviceOrientation) {
-                videoPreviewLayerConnection.videoOrientation = newVideoOrientation
-            }
+        if let newVideoOrientation = AVCaptureVideoOrientation(deviceOrientation: deviceOrientation) {
+            videoOrientation = newVideoOrientation
         }
-        
+
         setupOrientationAndTransform()
     }
 
 
     func setupOrientationAndTransform() {
-        // Recalculate the affine transform between Vision coordinates and AVF coordinates.
-        
-        // Compensate for region of interest.
-        let roi = regionOfInterest
-        roiToGlobalTransform = CGAffineTransform(translationX: roi.origin.x, y: roi.origin.y)
-//            .scaledBy(x: roi.width, y: roi.height)
-        
         // Compensate for orientation (buffers always come in the same orientation).
         switch currentOrientation {
         case .landscapeLeft:
@@ -135,7 +159,7 @@ class VisionCertService: ObservableObject {
             return
         }
         self.captureDevice = captureDevice
-        
+    
         // NOTE:
         // Requesting 4k buffers allows recognition of smaller text but will
         // consume more power. Use the smallest buffer size necessary to keep
@@ -181,7 +205,7 @@ class VisionCertService: ObservableObject {
         do {
             try captureDevice.lockForConfiguration()
             captureDevice.videoZoomFactor = 1
-            captureDevice.autoFocusRangeRestriction = .near
+            captureDevice.autoFocusRangeRestriction = .none
             captureDevice.unlockForConfiguration()
         } catch {
             print("Could not set zoom level due to error: \(error)")
@@ -189,11 +213,25 @@ class VisionCertService: ObservableObject {
         }
         
         captureSession.startRunning()
+        
+      
     }
 
     var inProgressPhotoCaptureDelegates = [Int64: PhotoCaptureProcessor]()
     
     let captureQueue = DispatchQueue(label: "captureQueue")
+    
+    func toggleTorch() {
+        do {
+            try captureDevice?.lockForConfiguration()
+            captureDevice?.torchMode = isTorchOn ? .off : .on
+            isTorchOn.toggle()
+            captureDevice?.unlockForConfiguration()
+        } catch {
+            print("Could not set torch on due to error: \(error)")
+            return
+        }
+    }
         
     func onAppear() {
         
@@ -211,12 +249,12 @@ class VisionCertService: ObservableObject {
          the main thread and session configuration is done on the session queue.
          */
         
-        
-        let videoPreviewLayerOrientation = self.previewView.videoPreviewLayer.connection?.videoOrientation
+//        MARK: TODO: Handle orientation for iOS camera capture.
+//        let videoPreviewLayerOrientation = self.previewView.videoPreviewLayer.connection?.videoOrientation
       
         captureQueue.async {
             if let photoOutputConnection = self.captureOutput.connection(with: .video) {
-                photoOutputConnection.videoOrientation = videoPreviewLayerOrientation!
+                photoOutputConnection.videoOrientation = .portrait
             }
             var photoSettings = AVCapturePhotoSettings()
             
@@ -275,11 +313,11 @@ class VisionCertService: ObservableObject {
     }
     
 	
-	override func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
 		if let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) {
-			let requestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: textOrientation, options: [:])
+            let requestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: textOrientation, options: [:])
 			do {
-                try requestHandler.perform([analyzer.fastRequest, rectangleRequest])
+                try requestHandler.perform([analyzer.fastRequest])
 			} catch {
 				print(error)
 			}
