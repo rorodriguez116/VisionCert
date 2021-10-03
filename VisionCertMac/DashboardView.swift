@@ -22,7 +22,7 @@ struct DashboardView: View {
         ZStack {
             HStack(spacing: 50) {
                 VStack {
-                    Text("Bienvenido a Certchain")
+                    Text("Bienvenido a ValidCertChain")
                         .font(.title)
                         .padding(.bottom, 30)
                     

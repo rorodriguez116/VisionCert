@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9A059A02564E8060009897C /* SC4.json in Resources */ = {isa = PBXBuildFile; fileRef = A9AFAA6C255AEC010014ABD1 /* SC4.json */; };
 		A9AA9BDB2556F99400A66976 /* PhotoOutputProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AA9BDA2556F99400A66976 /* PhotoOutputProcessor.swift */; };
 		A9AA9BEB2556F9B600A66976 /* VisionCertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AA9BEA2556F9B600A66976 /* VisionCertService.swift */; };
 		A9AA9BFE2557890D00A66976 /* CertAnalyzerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F9BB172554F9D3009F255B /* CertAnalyzerView.swift */; };
@@ -498,6 +499,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9A059A02564E8060009897C /* SC4.json in Resources */,
 				A9AFAA47255868340014ABD1 /* Assets.xcassets in Resources */,
 				A9CB671D2554994C00881D6F /* Preview Assets.xcassets in Resources */,
 			);

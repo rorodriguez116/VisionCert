@@ -21,7 +21,7 @@ class BlockchainManager: ObservableObject {
     @Published var validationState = ValidationState.none
     @Published var isWorking = false
     
-    let web3 = Web3(rpcURL: "http://192.168.0.4:8543")
+    let web3 = Web3(rpcURL: "http://192.168.0.8:8543")
     
     init() {
       

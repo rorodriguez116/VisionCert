@@ -33,7 +33,7 @@ struct Certificate {
     
 }
 
-enum CertificateSide {
+enum CertificateSide: String {
     case front
     case back
     case both
@@ -83,9 +83,9 @@ class CertAnalyzer: ObservableObject {
     
     var currentProccessingIndex = 0
     
-    
-    func cleanAndProcess(string: String) -> String? {
-        let normalized = string.replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: " ", with: "")
+    func createHash(from normalized: String) -> String? {
+        let normalized = String(createNormalized(string: normalized).lowercased().sorted())
+        print(normalized)
         guard let data = normalized.data(using: .utf32, allowLossyConversion: true) else {
             return nil
         }
@@ -93,13 +93,20 @@ class CertAnalyzer: ObservableObject {
         return SHA256.hash(data: data).compactMap { String(format: "%02x", $0) }.joined()
     }
     
+    func createNormalized(string: String) -> String {
+        string.replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: " ", with: "")
+    }
+    
+    func cleanSignatures(string: String) -> String {
+        let ocurrances = ["A ance", "A cornead", "A ante", "A aune", "GIM", "GAM", "A Laureand", "A comide", "4-m", "A Laceando", "A anad", "G-M", "A acione", "A acen", "G/-M", "A cacaead", "A acele", "A arenl", "A acine", "A aument", "A une", "A cuant", "A cacens", "X ences", "Aun", "A caceada", "Ae", "a", "M", ":", "_", "Ó", "o", "í", "Ú", "ú", "O", "o"]
+        var cleaned = string
+        ocurrances.forEach { (val) in
+            cleaned = cleaned.replacingOccurrences(of: val, with: "")
+        }
+        return cleaned
+    }
+    
     init() {
-        accurateRequest = VNRecognizeTextRequest(completionHandler: recognizeAccurateTextHandler)
-        accurateRequest.usesCPUOnly = false
-        accurateRequest.recognitionLevel = .accurate
-        accurateRequest.recognitionLanguages = ["ES"]
-        accurateRequest.usesLanguageCorrection = true
-        
         fastRequest = VNRecognizeTextRequest(completionHandler: recognizeTextHandler)
         fastRequest.usesCPUOnly = false
         fastRequest.recognitionLevel = .fast
@@ -195,8 +202,8 @@ class CertAnalyzer: ObservableObject {
                 let accurateRequest = VNRecognizeTextRequest(completionHandler: recognizeAccurateTextHandler)
                 accurateRequest.usesCPUOnly = false
                 accurateRequest.recognitionLevel = .accurate
-                accurateRequest.recognitionLanguages = ["ES"]
-                accurateRequest.usesLanguageCorrection = false
+                accurateRequest.recognitionLanguages = ["es"]
+                accurateRequest.usesLanguageCorrection = true
                 return accurateRequest
             }()
             
@@ -204,8 +211,8 @@ class CertAnalyzer: ObservableObject {
                 let accurateRequest = VNRecognizeTextRequest(completionHandler: recognizeAccurateTextHandler)
                 accurateRequest.usesCPUOnly = false
                 accurateRequest.recognitionLevel = .accurate
-                accurateRequest.recognitionLanguages = ["ES"]
-                accurateRequest.usesLanguageCorrection = false
+                accurateRequest.recognitionLanguages = ["es"]
+                accurateRequest.usesLanguageCorrection = true
                 return accurateRequest
             }()
             
@@ -237,22 +244,22 @@ class CertAnalyzer: ObservableObject {
     
     #endif
     
-    public func process(cgImage: CGImage) {
+    public func process(cgImage: CGImage, orientation: CGImagePropertyOrientation) {
         self.isLoading = true
                 
         currentProccessingIndex = 0
-        
-        let requestHandler = VNImageRequestHandler(cgImage: cgImage, orientation: .up, options: [:])
+                
+        let requestHandler = VNImageRequestHandler(cgImage: cgImage, orientation: orientation, options: [:])
         
         accurateRequest = VNRecognizeTextRequest(completionHandler: recognizeAccurateTextHandler)
         accurateRequest.usesCPUOnly = false
         accurateRequest.recognitionLevel = .accurate
-        accurateRequest.recognitionLanguages = ["ES"]
-        accurateRequest.usesLanguageCorrection = false
+        accurateRequest.recognitionLanguages = ["es"]
+        accurateRequest.usesLanguageCorrection = true
                         
         do {
             try requestHandler.perform([accurateRequest])
-            print("Successfully processed certificate")
+            print("Successfully processed certificate for side: \(currentPage.rawValue)")
         } catch {
             print(error)
         }
@@ -326,14 +333,12 @@ class CertAnalyzer: ObservableObject {
             let maximumCandidates = 1
             for observation in results {
                 guard let candidate = observation.topCandidates(maximumCandidates).first else { continue }
+                
+            
                 fullText += candidate.string
                 fullText += "\n"
             }
             
-        
-            fullText += "\n"
-            fullText += "\n"
-        
 //            print(fullText)
             
                                     
@@ -341,6 +346,8 @@ class CertAnalyzer: ObservableObject {
             
             guard let index = self?.currentProccessingIndex, let currentCount = self?.certificates.count else { return }
             
+            #if os(macOS)
+
             if index < currentCount {
                 if self?.currentPage == .front {
                     self?.certificates[index].frontPage.boxes = results
@@ -349,30 +356,73 @@ class CertAnalyzer: ObservableObject {
 
                 } else {
                     self?.certificates[index].backPage.boxes = results
-                    self?.currentPage = .front
                     self?.certificates[index].backPage.text = fullText
                     self?.currentProccessingIndex += 1
                     
                     // Still just extracting for one page at a time
-                    guard let frontText = self?.certificates[index].backPage.text, let backText = self?.certificates[index].frontPage.text, let HASH = self?.cleanAndProcess(string: frontText + backText) else { return }
+                    guard let frontText = self?.certificates[index].frontPage.text, let backText = self?.certificates[index].backPage.text, let cleanedBack = self?.cleanSignatures(string: backText), let HASH = self?.createHash(from: cleanedBack) else { return }
                     //
                     
-                    self?.certificates[index].fullText = frontText + "\n" + backText
+                    let cleanResult = frontText + "\n" + backText
+                    let completeResult = cleanResult
+                    
+                    self?.certificates[index].fullText = completeResult
 
                     self?.certificates[index].hash = HASH
                     
-                    self?.found = fullText
+                    self?.hash = HASH
+                    
+                    self?.found = completeResult
+                    
+                    self?.currentPage = .front
+                    
+                    self?.shouldShowResults = true
                 }
             }
             
-            #if os(macOS)
             
             self?.load(to: .both)
             
+            #else
+            if self?.currentPage == .front {
+                let frontPage = Certificate.PageData(fileUrl: nil, text: fullText, boxes: results)
+                let backPage = Certificate.PageData(fileUrl: nil, text: "", boxes: [])
+                self?.selectedCertificate = Certificate(frontPage: frontPage, backPage: backPage, date: Date(), hash: "", fullText: "")
+                self?.currentPage = .back
+            } else {
+                let backPage = Certificate.PageData(fileUrl: nil, text: fullText, boxes: results)
+                self?.selectedCertificate?.backPage = backPage
+                
+                // Still just extracting for one page at a time
+                guard let frontText = self?.selectedCertificate?.frontPage.text, let backText = self?.selectedCertificate?.backPage.text, let cleanedBack = self?.cleanSignatures(string: backText), let HASH = self?.createHash(from: cleanedBack) else { return }
+                //
+                
+                let cleanResult = frontText + "\n" + backText
+                
+                let completeResult = cleanResult
+                
+                //
+                                
+                self?.selectedCertificate?.fullText = completeResult
+                
+                self?.found = completeResult
+
+                self?.selectedCertificate?.hash = HASH
+                
+                self?.hash = HASH
+                
+                print("RESULTS: ", completeResult)
+                
+                print("HASH:", HASH)
+                                
+                self?.currentPage = .front
+                
+                self?.shouldShowResults = true
+            }
+            
+            
             #endif
-            
-            self?.shouldShowResults = true
-            
+                        
         }
     }
 }

@@ -97,20 +97,30 @@ struct ContentView: View {
             CameraViewFinder(captureSession: vision.captureSession, orientation: vision.videoOrientation, observations: ObservationsGroup(text: vision.textObservations, rectangles: vision.rectangleObservations), visionToAVFTransform: vision.visionToAVFTransform)
             
             VStack {
-                Button(action: {
-                    vision.toggleTorch()
-                }, label: {
-                    Image(systemName: vision.isTorchOn ? "bolt.fill" : "bolt.slash.fill")
-                        .font(.system(size: 22, weight: .medium, design: .default))
-                        .contentShape(Rectangle())
-                        .frame(width: 30, height: 30, alignment: .top)
-                })
-                .accentColor(.white)
+                HStack {
+                    Button(action: {
+                        vision.toggleTorch()
+                    }, label: {
+                        Image(systemName: vision.isTorchOn ? "bolt.fill" : "bolt.slash.fill")
+                            .font(.system(size: 22, weight: .medium, design: .default))
+                            .contentShape(Rectangle())
+                            .frame(width: 30, height: 30, alignment: .top)
+                    })
+                    .accentColor(.white)
+                    
+                    Spacer()
+                    
+                    Text(vision.analyzer.currentPage.rawValue.capitalized)
+                        .bold()
+                        .foregroundColor(.white)
+                        .shadow(radius: 10)
+                }
                 
                 Spacer()
                 
                 captureButton
             }
+            .padding(.horizontal, 30)
         }
         .onAppear {
             manager.setup()

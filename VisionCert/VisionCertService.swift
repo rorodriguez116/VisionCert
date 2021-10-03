@@ -91,7 +91,13 @@ class VisionCertService: NSObject, ObservableObject, AVCaptureVideoDataOutputSam
         analyzer.$shouldShowResults
             .receive(on: RunLoop.main)
             .sink { [weak self] (val) in
-                self?.shouldShowResults = val 
+                self?.shouldShowResults = val
+                
+                if val == true {
+                    self?.captureSessionQueue.async {
+                        self?.captureSession.stopRunning()
+                    }
+                }
             }
             .store(in: &self.subscriptions)
         
@@ -279,19 +285,11 @@ class VisionCertService: NSObject, ObservableObject, AVCaptureVideoDataOutputSam
                 }
             }, completionHandler: { [weak self] (photoCaptureProcessor) in
                 // When the capture is complete, remove a reference to the photo capture delegate so it can be deallocated.
-                if let data = photoCaptureProcessor.photoData, let cgImage = UIImage(data: data)?.cgImage, let request = self?.analyzer.accurateRequest, let session = self?.captureSession, let orientation = self?.textOrientation {
+                if let data = photoCaptureProcessor.photoData, let cgImage = UIImage(data: data)?.cgImage, let session = self?.captureSession, let orientation = self?.textOrientation {
                     print("Proccessing photo")
                     
-                    self?.captureSessionQueue.async {
-                        session.stopRunning()
-                    }
-                                        
-                    let requestHandler = VNImageRequestHandler(cgImage: cgImage, orientation: orientation, options: [:])
-                    do {
-                        try requestHandler.perform([request])
-                    } catch {
-                        print(error)
-                    }
+                    
+                    self?.analyzer.process(cgImage: cgImage, orientation: orientation)
                     
                 } else {
                     print("No photo data to process, capture failed")
